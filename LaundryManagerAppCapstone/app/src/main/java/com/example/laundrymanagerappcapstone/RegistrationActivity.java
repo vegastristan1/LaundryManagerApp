@@ -131,6 +131,54 @@ public class RegistrationActivity extends AppCompatActivity {
         request.execute();
     }
 
+    /*private void updateHero() {
+        String id = editTextHeroId.getText().toString();
+        String name = editTextName.getText().toString().trim();
+        String realname = editTextRealname.getText().toString().trim();
+
+        int rating = (int) ratingBar.getRating();
+
+        String team = spinnerTeam.getSelectedItem().toString();
+
+
+        if (TextUtils.isEmpty(name)) {
+            editTextName.setError("Please enter name");
+            editTextName.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(realname)) {
+            editTextRealname.setError("Please enter real name");
+            editTextRealname.requestFocus();
+            return;
+        }
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put("id", id);
+        params.put("name", name);
+        params.put("realname", realname);
+        params.put("rating", String.valueOf(rating));
+        params.put("teamaffiliation", team);
+
+
+        com.example.laundrymanagerappcapstone.MainActivity.PerformNetworkRequest request = new com.example.laundrymanagerappcapstone.MainActivity.PerformNetworkRequest(com.example.laundrymanagerappcapstone.apiconnection.Api.URL_UPDATE_HERO, params, CODE_POST_REQUEST);
+        request.execute();
+
+        buttonAddUpdate.setText("Add");
+
+        editTextName.setText("");
+        editTextRealname.setText("");
+        ratingBar.setRating(0);
+        spinnerTeam.setSelection(0);
+
+        isUpdating = false;
+    }
+
+    private void deleteHero(int id) {
+        com.example.laundrymanagerappcapstone.MainActivity.PerformNetworkRequest request = new com.example.laundrymanagerappcapstone.MainActivity.PerformNetworkRequest(com.example.laundrymanagerappcapstone.apiconnection.Api.URL_DELETE_HERO + id, null, CODE_GET_REQUEST);
+        request.execute();
+    }
+*/
 
     private void readHeroes() {
         com.example.laundrymanagerappcapstone.RegistrationActivity.PerformNetworkRequest request = new com.example.laundrymanagerappcapstone.RegistrationActivity.PerformNetworkRequest(Api.URL_READ_STORE_MANAGERS, null, CODE_GET_REQUEST);
