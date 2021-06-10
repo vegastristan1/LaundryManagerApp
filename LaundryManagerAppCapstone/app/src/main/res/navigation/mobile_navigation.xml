@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_book">
+
+    <fragment
+        android:id="@+id/navigation_book"
+        android:name="com.example.laundrymanagerappcapstone.ui.booklists.BookFragment"
+        android:label="@string/title_book"
+        tools:layout="@layout/fragment_book" />
+
+    <fragment
+        android:id="@+id/navigation_productLists"
+        android:name="com.example.laundrymanagerappcapstone.ui.productlists.ProductListsFragment"
+        android:label="@string/title_product_lists"
+        tools:layout="@layout/fragment_product_lists" />
+
+    <fragment
+        android:id="@+id/navigation_profit"
+        android:name="com.example.laundrymanagerappcapstone.ui.profit.ProfitFragment"
+        android:label="@string/title_profit"
+        tools:layout="@layout/fragment_profit" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.laundrymanagerappcapstone.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
