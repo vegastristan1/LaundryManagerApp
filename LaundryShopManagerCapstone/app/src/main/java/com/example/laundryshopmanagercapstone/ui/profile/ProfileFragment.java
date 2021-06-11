@@ -23,19 +23,19 @@ import com.example.laundryshopmanagercapstone.ui.profile.ProfileViewModel;
 
 public class ProfileFragment extends Fragment {
 
-    private ProfileViewModel productListViewModel;
+    private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        productListViewModel =
+        profileViewModel =
                 new ViewModelProvider(this).get(ProfileViewModel.class);
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textProfile;
-        productListViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
