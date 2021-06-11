@@ -5,8 +5,8 @@ public class Api {
     //private static final String ROOT_URL = "http://192.168.254.136/HeroApi/v1/Api.php?apicall=";
     //private static final String ROOT_URL = "http://192.168.254.136/LaundryAppApi/v1/Api.php?apicall=";
     //converge
-    private static final String ROOT_URL = "http://192.168.1.6/HeroApi/v1/Api.php?apicall=";
-    //private static final String ROOT_URL = "http://192.168.1.6/LaundryAppApi/v1/Api.php?apicall=";
+    //private static final String ROOT_URL = "http://192.168.1.6/HeroApi/v1/Api.php?apicall=";
+    private static final String ROOT_URL = "http://192.168.1.6/LaundryAppApi/v1/Api.php?apicall=";
 
     public static final String URL_CREATE_HERO = ROOT_URL + "createhero";
     public static final String URL_READ_HEROES = ROOT_URL + "getheroes";

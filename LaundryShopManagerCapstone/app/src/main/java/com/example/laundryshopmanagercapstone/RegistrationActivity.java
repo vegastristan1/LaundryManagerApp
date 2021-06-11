@@ -43,7 +43,7 @@ public class RegistrationActivity extends AppCompatActivity {
     ProgressBar progressBar;
     ListView listView;
 
-    List<com.example.laundryshopmanagercapstone.apiconnection.Hero>managerList;
+    List<com.example.laundryshopmanagercapstone.apiconnection.Manager>managerList;
 
     boolean isUpdating = false;
 
@@ -69,15 +69,15 @@ public class RegistrationActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createHero();
+                createStoreManger();
             }
         });
-        readHeroes();
+        readStoreManagers();
 
     }
 
 
-    private void createHero() {
+    private void createStoreManger() {
         String store_name = editTextStoreName.getText().toString().trim();
         String store_owner = editTextStoreOwner.getText().toString().trim();
         String store_contact_number = editTextStoreContactNumber.getText().toString().trim();
@@ -86,37 +86,37 @@ public class RegistrationActivity extends AppCompatActivity {
         String store_email = editTextStoreEmail.getText().toString().trim();
 
         if (TextUtils.isEmpty(store_name)) {
-            editTextStoreName.setError("Please enter name");
+            editTextStoreName.setError("Please enter store name");
             editTextStoreName.requestFocus();
             return;
         }
 
         if (TextUtils.isEmpty(store_owner)) {
-            editTextStoreOwner.setError("Please enter real name");
+            editTextStoreOwner.setError("Please enter store owner");
             editTextStoreOwner.requestFocus();
             return;
         }
 
         if (TextUtils.isEmpty(store_contact_number)) {
-            editTextStoreContactNumber.setError("Please enter name");
+            editTextStoreContactNumber.setError("Please store contact number");
             editTextStoreContactNumber.requestFocus();
             return;
         }
 
         if (TextUtils.isEmpty(store_address)) {
-            editTextStoreAddress.setError("Please enter real name");
+            editTextStoreAddress.setError("Please enter store address");
             editTextStoreAddress.requestFocus();
             return;
         }
 
         if (TextUtils.isEmpty(store_password)) {
-            editTextStorePassword.setError("Please enter name");
+            editTextStorePassword.setError("Please enter store password");
             editTextStorePassword.requestFocus();
             return;
         }
 
         if (TextUtils.isEmpty(store_email)) {
-            editTextStoreEmail.setError("Please enter real name");
+            editTextStoreEmail.setError("Please enter store email address");
             editTextStoreEmail.requestFocus();
             return;
         }
@@ -182,27 +182,29 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 */
 
-    private void readHeroes() {
-        com.example.laundryshopmanagercapstone.RegistrationActivity.PerformNetworkRequest request = new com.example.laundryshopmanagercapstone.RegistrationActivity.PerformNetworkRequest(Api.URL_READ_HEROES, null, CODE_GET_REQUEST);
+    private void readStoreManagers() {
+        com.example.laundryshopmanagercapstone.RegistrationActivity.PerformNetworkRequest request = new com.example.laundryshopmanagercapstone.RegistrationActivity.PerformNetworkRequest(Api.URL_READ_STORE_MANAGERS, null, CODE_GET_REQUEST);
         request.execute();
     }
 
-    private void refreshHeroList(JSONArray heroes) throws JSONException {
+    private void refreshStoreManagerList(JSONArray managers) throws JSONException {
         managerList.clear();
 
-        for (int i = 0; i < heroes.length(); i++) {
-            JSONObject obj = heroes.getJSONObject(i);
+        for (int i = 0; i < managers.length(); i++) {
+            JSONObject obj = managers.getJSONObject(i);
 
-            managerList.add(new com.example.laundryshopmanagercapstone.apiconnection.Hero(
+            managerList.add(new com.example.laundryshopmanagercapstone.apiconnection.Manager(
                     obj.getInt("id"),
-                    obj.getString("name"),
-                    obj.getString("realname"),
-                    obj.getInt("rating"),
-                    obj.getString("teamaffiliation")
+                    obj.getString("store_name"),
+                    obj.getString("store_owner"),
+                    obj.getString("store_contact_number"),
+                    obj.getString("store_address"),
+                    obj.getString("store_password"),
+                    obj.getString("store_email")
             ));
         }
 
-        com.example.laundryshopmanagercapstone.RegistrationActivity.HeroAdapter adapter = new com.example.laundryshopmanagercapstone.RegistrationActivity.HeroAdapter(managerList);
+        com.example.laundryshopmanagercapstone.RegistrationActivity.ManagerAdapter adapter = new com.example.laundryshopmanagercapstone.RegistrationActivity.ManagerAdapter(managerList);
         listView.setAdapter(adapter);
     }
 
@@ -227,11 +229,11 @@ public class RegistrationActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             progressBar.setVisibility(GONE);
-            try {
+            try { //if there is an error here look for the connection api
                 JSONObject object = new JSONObject(s);
                 if (!object.getBoolean("error")) {
                     Toast.makeText(getApplicationContext(), object.getString("message"), Toast.LENGTH_SHORT).show();
-                    refreshHeroList(object.getJSONArray("heroes"));
+                    refreshStoreManagerList(object.getJSONArray("storemanagers"));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -253,14 +255,13 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
 
-    class HeroAdapter extends ArrayAdapter<com.example.laundryshopmanagercapstone.apiconnection.Hero> {
-        List<com.example.laundryshopmanagercapstone.apiconnection.Hero> heroList;
+    class ManagerAdapter extends ArrayAdapter<com.example.laundryshopmanagercapstone.apiconnection.Manager> {
+        List<com.example.laundryshopmanagercapstone.apiconnection.Manager> managerList;
 
-        public HeroAdapter(List<com.example.laundryshopmanagercapstone.apiconnection.Hero> heroList) {
-            super(com.example.laundryshopmanagercapstone.RegistrationActivity.this, R.layout.layout_manager_list, heroList);
-            this.heroList = heroList;
+        public ManagerAdapter(List<com.example.laundryshopmanagercapstone.apiconnection.Manager> managerList) {
+            super(com.example.laundryshopmanagercapstone.RegistrationActivity.this, R.layout.layout_manager_list, managerList);
+            this.managerList = managerList;
         }
-
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -272,17 +273,17 @@ public class RegistrationActivity extends AppCompatActivity {
             TextView textViewUpdate = listViewItem.findViewById(R.id.textViewUpdate);
             TextView textViewDelete = listViewItem.findViewById(R.id.textViewDelete);
 
-            final com.example.laundryshopmanagercapstone.apiconnection.Hero hero = heroList.get(position);
+            final com.example.laundryshopmanagercapstone.apiconnection.Manager manager = managerList.get(position);
 
-            textViewName.setText(hero.getName());
+            textViewName.setText(manager.getStore_name());
 
             textViewUpdate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     isUpdating = true;
-                    editTextStoreId.setText(String.valueOf(hero.getId()));
-                    editTextStoreName.setText(hero.getName());
-                    editTextStoreOwner.setText(hero.getRealname());
+                    editTextStoreId.setText(String.valueOf(manager.getId()));
+                    editTextStoreName.setText(manager.getStore_name());
+                    editTextStoreOwner.setText(manager.getStore_owner());
                     //ratingBar.setRating(hero.getRating());
                     //spinnerTeam.setSelection(((ArrayAdapter<String>) spinnerTeam.getAdapter()).getPosition(hero.getTeamaffiliation()));
                     //buttonAddUpdate.setText("Update");
@@ -295,7 +296,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(com.example.laundryshopmanagercapstone.RegistrationActivity.this);
 
-                    builder.setTitle("Delete " + hero.getName())
+                    builder.setTitle("Delete " + manager.getStore_name())
                             .setMessage("Are you sure you want to delete it?")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
