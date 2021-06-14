@@ -5,8 +5,8 @@ public class Api {
     //private static final String ROOT_URL = "http://192.168.254.136/HeroApi/v1/Api.php?apicall=";
     //private static final String ROOT_URL = "http://192.168.254.136/LaundryAppApi/v1/Api.php?apicall=";
     //converge
-    //private static final String ROOT_URL = "http://192.168.1.6/HeroApi/v1/Api.php?apicall=";
-    private static final String ROOT_URL = "http://192.168.1.6/LaundryAppApi/v1/Api.php?apicall=";
+    //private static final String ROOT_URL = "http://192.168.1.15/HeroApi/v1/Api.php?apicall=";
+    private static final String ROOT_URL = "http://192.168.1.15/LaundryAppApi/v1/Api.php?apicall=";
 
     public static final String URL_CREATE_HERO = ROOT_URL + "createhero";
     public static final String URL_READ_HEROES = ROOT_URL + "getheroes";
@@ -19,9 +19,19 @@ public class Api {
     public static final String URL_UPDATE_CUSTOMER = ROOT_URL + "updatecustomer";
     public static final String URL_DELETE_CUSTOMER = ROOT_URL + "deleteacustomer&id=";
 
-    //Customer Data
+    //Manager Data
     public static final String URL_CREATE_STORE_MANAGER = ROOT_URL + "createstoremanager";
     public static final String URL_READ_STORE_MANAGERS = ROOT_URL + "getstoremanagers";
     public static final String URL_UPDATE_STORE_MANAGER = ROOT_URL + "updatestoremanager";
     public static final String URL_DELETE_STORE_MANAGER = ROOT_URL + "deleteastoremanager&id=";
+
+    //Registration and Login
+    public static final String URL_REGISTER = ROOT_URL + "signup";
+    public static final String URL_LOGIN = ROOT_URL + "login";
+
+    //Product Data
+    public static final String URL_CREATE_PRODUCT = ROOT_URL + "createstoremanager";
+    public static final String URL_READ_PRODUCT = ROOT_URL + "getproducts";
+    public static final String URL_UPDATE_PRODUCT = ROOT_URL + "updatestoremanager";
+    public static final String URL_DELETE_PRODUCT = ROOT_URL + "deleteastoremanager&id=";
 }
