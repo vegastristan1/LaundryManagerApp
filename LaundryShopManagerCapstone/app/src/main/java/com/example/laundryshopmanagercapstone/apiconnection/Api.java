@@ -25,10 +25,6 @@ public class Api {
     public static final String URL_UPDATE_STORE_MANAGER = ROOT_URL + "updatestoremanager";
     public static final String URL_DELETE_STORE_MANAGER = ROOT_URL + "deleteastoremanager&id=";
 
-    //Registration and Login
-    public static final String URL_REGISTER = ROOT_URL + "signup";
-    public static final String URL_LOGIN = ROOT_URL + "login";
-
     //Product Data
     public static final String URL_CREATE_PRODUCT = ROOT_URL + "createstoremanager";
     public static final String URL_READ_PRODUCT = ROOT_URL + "getproducts";

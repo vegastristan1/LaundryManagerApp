@@ -41,105 +41,103 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="513dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewProfileLabelStoreUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Username" />
+
+                <TextView
+                    android:id="@+id/textViewProfileStoreUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="24dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Username"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/textViewProfileLabelStoreName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Store Name" />
 
                 <TextView
                     android:id="@+id/textViewProfileStoreName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Store Name" />
-
-                <EditText
-                    android:id="@+id/editTextProfileStoreName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:textSize="24dp"
                     android:ems="10"
+                    android:gravity="center"
                     android:hint="Store Name"
                     android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/textViewProfileLabelStoreOwner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Owner" />
 
                 <TextView
                     android:id="@+id/textViewProfileStoreOwner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Owner" />
-
-                <EditText
-                    android:id="@+id/editTextProfileStoreOwner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:textSize="24dp"
                     android:ems="10"
                     android:hint="Store Owner"
+                    android:gravity="center"
                     android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/textViewProfileLabelContactNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Number" />
 
                 <TextView
                     android:id="@+id/textViewProfileContactNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Contact Number" />
-
-                <EditText
-                    android:id="@+id/editTextProfileContactNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:textSize="24dp"
                     android:ems="10"
+                    android:gravity="center"
                     android:hint="Contact Number"
                     android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/textViewProfileLabelStoreAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Store Address" />
 
                 <TextView
                     android:id="@+id/textViewProfileStoreAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Store Address" />
-
-                <EditText
-                    android:id="@+id/editTextProfileStoreAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:textSize="24dp"
                     android:ems="10"
+                    android:gravity="center"
                     android:hint="Store Address"
                     android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/textViewProfileLabelStoreEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Store Email Address" />
 
                 <TextView
                     android:id="@+id/textViewProfileStoreEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Store Email Address" />
-
-                <EditText
-                    android:id="@+id/editTextProfileStoreEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:textSize="24dp"
                     android:ems="10"
+                    android:gravity="center"
                     android:hint="Store Email Address"
-                    android:inputType="textPersonName" />
-
-                <TextView
-                    android:id="@+id/textViewProfileStorePassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Password" />
-
-                <EditText
-                    android:id="@+id/editTextProfileStorePassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Password"
-                    android:inputType="textPersonName" />
-
-                <TextView
-                    android:id="@+id/textViewProfileStorePassword2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/confirm_password_string" />
-
-                <EditText
-                    android:id="@+id/editTextProfileStorePassword2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/confirm_password_string"
                     android:inputType="textPersonName" />
 
             </LinearLayout>
@@ -165,7 +163,7 @@
             android:layout_marginStart="302dp"
             android:layout_marginTop="108dp"
             android:layout_marginEnd="15dp"
-            android:text="Save" />
+            android:text="Logout" />
 
     </RelativeLayout>
 
