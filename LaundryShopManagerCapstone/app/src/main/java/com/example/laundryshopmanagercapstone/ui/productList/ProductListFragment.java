@@ -47,7 +47,7 @@ public class ProductListFragment extends Fragment {
     ProgressBar progressBar;
     ListView listView;
 
-    List<com.example.laundryshopmanagercapstone.apiconnection.Hero> heroList;
+    List<com.example.laundryshopmanagercapstone.apiconnection.Service> serviceList;
 
     private ProductListViewModel productListViewModel;
     private FragmentProductListBinding binding;
@@ -73,7 +73,7 @@ public class ProductListFragment extends Fragment {
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         listView = (ListView) view.findViewById(R.id.listOfProductItem);
 
-        heroList = new ArrayList<>();
+        serviceList = new ArrayList<>();
         //readHeroes();
         return view;
     }
@@ -114,8 +114,8 @@ public class ProductListFragment extends Fragment {
         request.execute();
     }*/
 
-    private void readHeroes() {
-        com.example.laundryshopmanagercapstone.ui.productList.ProductListFragment.PerformNetworkRequest request = new com.example.laundryshopmanagercapstone.ui.productList.ProductListFragment.PerformNetworkRequest(com.example.laundryshopmanagercapstone.apiconnection.Api.URL_READ_HEROES, null, CODE_GET_REQUEST);
+    private void readServices() {
+        com.example.laundryshopmanagercapstone.ui.productList.ProductListFragment.PerformNetworkRequest request = new com.example.laundryshopmanagercapstone.ui.productList.ProductListFragment.PerformNetworkRequest(Api.URL_READ_SERVICE, null, CODE_GET_REQUEST);
         request.execute();
     }
 
@@ -167,22 +167,24 @@ public class ProductListFragment extends Fragment {
         request.execute();
     }*/
 
-    private void refreshHeroList(JSONArray heroes) throws JSONException {
-        heroList.clear();
+    private void refreshHeroList(JSONArray services) throws JSONException {
+        serviceList.clear();
 
-        for (int i = 0; i < heroes.length(); i++) {
-            JSONObject obj = heroes.getJSONObject(i);
+        for (int i = 0; i < services.length(); i++) {
+            JSONObject obj = services.getJSONObject(i);
 
-            heroList.add(new com.example.laundryshopmanagercapstone.apiconnection.Hero(
+            serviceList.add(new com.example.laundryshopmanagercapstone.apiconnection.Service(
                     obj.getInt("id"),
-                    obj.getString("name"),
-                    obj.getString("realname"),
-                    obj.getInt("rating"),
+                    obj.getString("service_name"),
+                    obj.getString("service_price"),
+                    obj.getString("service_desc"),
+                    obj.getString("teamaffiliation"),
+                    obj.getString("rating"),
                     obj.getString("teamaffiliation")
             ));
         }
 
-        com.example.laundryshopmanagercapstone.ui.productList.ProductListFragment.HeroAdapter adapter = new com.example.laundryshopmanagercapstone.ui.productList.ProductListFragment.HeroAdapter(heroList);
+        com.example.laundryshopmanagercapstone.ui.productList.ProductListFragment.HeroAdapter adapter = new com.example.laundryshopmanagercapstone.ui.productList.ProductListFragment.HeroAdapter(serviceList);
         listView.setAdapter(adapter);
     }
 

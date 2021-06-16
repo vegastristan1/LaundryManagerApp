@@ -20,14 +20,13 @@ public class Api {
     public static final String URL_DELETE_CUSTOMER = ROOT_URL + "deleteacustomer&id=";
 
     //Manager Data
-    public static final String URL_CREATE_STORE_MANAGER = ROOT_URL + "createstoremanager";
     public static final String URL_READ_STORE_MANAGERS = ROOT_URL + "getstoremanagers";
     public static final String URL_UPDATE_STORE_MANAGER = ROOT_URL + "updatestoremanager";
     public static final String URL_DELETE_STORE_MANAGER = ROOT_URL + "deleteastoremanager&id=";
 
     //Product Data
-    public static final String URL_CREATE_PRODUCT = ROOT_URL + "createstoremanager";
-    public static final String URL_READ_PRODUCT = ROOT_URL + "getproducts";
-    public static final String URL_UPDATE_PRODUCT = ROOT_URL + "updatestoremanager";
-    public static final String URL_DELETE_PRODUCT = ROOT_URL + "deleteastoremanager&id=";
+    public static final String URL_CREATE_SERVICE = ROOT_URL + "createservice";
+    public static final String URL_READ_SERVICE = ROOT_URL + "getservices";
+    public static final String URL_UPDATE_SERVICE = ROOT_URL + "updateservice";
+    public static final String URL_DELETE_SERVICE = ROOT_URL + "deleteservice&id=";
 }
