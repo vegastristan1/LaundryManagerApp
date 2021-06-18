@@ -42,29 +42,33 @@ public class ServiceListFragment extends Fragment {
 
     TextView textViewName, textViewId;
     EditText editTextItemNameType, editTextCategoryNameType, editTextServiceName, editTextServicePrice, editTextServiceDesc, editTextStoreID;
-
+    int store_id;
     FloatingActionButton floatingActionButton;
     ProgressBar progressBar;
     ListView listView;
     Spinner spinnerItem, spinnerCategories;
-
+    Dialog dialog;
     List<com.example.laundryshopmanagercapstone.apiconnection.Service> serviceList;
 
     private ServiceListViewModel serviceListViewModel;
     private FragmentServiceListBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_service_list, container, false);
+
+        dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.add_service);
+
+        editTextServiceName = dialog.findViewById(R.id.editTextAddServiceName);
+        editTextServicePrice = dialog.findViewById(R.id.editTextAddServicePrice);
+        editTextServiceDesc = dialog.findViewById(R.id.editTextAddServiceDesc);
+        spinnerItem = dialog.findViewById(R.id.spinnerItems);
+        spinnerCategories = dialog.findViewById(R.id.spinnerCategories);
 
         textViewId = view.findViewById(R.id.textViewId);
         textViewName = view.findViewById(R.id.textViewNameOfStore);
         floatingActionButton = view.findViewById(R.id.fab2);
-        spinnerItem = view.findViewById(R.id.spinnerItems);
-
-        editTextServiceName = view.findViewById(R.id.editTextAddServiceName);
-        editTextServicePrice = view.findViewById(R.id.editTextAddServicePrice);
-        editTextServiceDesc = view.findViewById(R.id.editTextAddServiceDesc);
 
         //getting the current user
         Manager manager = SharedPrefManager.getInstance(getContext()).getUser();
@@ -88,7 +92,6 @@ public class ServiceListFragment extends Fragment {
         });
         return root;*/
 
-
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         listView = (ListView) view.findViewById(R.id.listOfProductItem);
 
@@ -101,7 +104,7 @@ public class ServiceListFragment extends Fragment {
             }
         });
 
-        int store_id = Integer.parseInt(textViewId.getText().toString());
+        store_id = Integer.parseInt(textViewId.getText().toString());
         readServiceFromID(store_id);
 
         //readServices();
@@ -114,15 +117,19 @@ public class ServiceListFragment extends Fragment {
         binding = null;
     }
 
+    public void myFancyMethod(View v){
+
+    }
+
     private void createService() {
         //editTextServiceName give a null and also the editTextAddServiceName
+
         String servicename = editTextServiceName.getText().toString().trim();
         String serviceprice = editTextServicePrice.getText().toString().trim();
         String servicedesc = editTextServiceDesc.getText().toString().trim();
 
         String item = spinnerItem.getSelectedItem().toString();
         String category = spinnerCategories.getSelectedItem().toString();
-        int store_id = textViewId.getId();
 
         if (TextUtils.isEmpty(servicename)) {
             editTextServiceName.setError("Please enter service name");
@@ -139,9 +146,9 @@ public class ServiceListFragment extends Fragment {
         HashMap<String, String> params = new HashMap<>();
         params.put("item_name_type", item);
         params.put("category_name_type", category);
-        params.put("service_name", servicename);
-        params.put("service_price", serviceprice);
-        params.put("service_desc", servicedesc);
+        params.put("services_name", servicename);
+        params.put("services_price", serviceprice);
+        params.put("services_desc", servicedesc);
         params.put("store_id", String.valueOf(store_id));
 
         com.example.laundryshopmanagercapstone.ui.servicesList.ServiceListFragment.PerformNetworkRequest request = new com.example.laundryshopmanagercapstone.ui.servicesList.ServiceListFragment.PerformNetworkRequest(Api.URL_CREATE_SERVICE, params, CODE_POST_REQUEST);
@@ -317,11 +324,6 @@ public class ServiceListFragment extends Fragment {
     }
 
     public void popupActivity(){
-        Dialog dialog = new Dialog(getContext());
-
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.add_service);
-
         Button dialog_btn = dialog.findViewById(R.id.buttonAddService);
         dialog_btn.setOnClickListener(new View.OnClickListener() {
             @Override
