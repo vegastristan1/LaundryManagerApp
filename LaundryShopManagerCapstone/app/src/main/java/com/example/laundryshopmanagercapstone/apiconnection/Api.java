@@ -6,7 +6,7 @@ public class Api {
     //private static final String ROOT_URL = "http://192.168.254.136/LaundryAppApi/v1/Api.php?apicall=";
     //converge
     //private static final String ROOT_URL = "http://192.168.1.15/HeroApi/v1/Api.php?apicall=";
-    private static final String ROOT_URL = "http://192.168.1.15/LaundryAppApi/v1/Api.php?apicall=";
+    private static final String ROOT_URL = "http://192.168.1.15/LaundryManagerAppApi/v1/Api.php?apicall=";
 
     public static final String URL_CREATE_HERO = ROOT_URL + "createhero";
     public static final String URL_READ_HEROES = ROOT_URL + "getheroes";
@@ -24,9 +24,12 @@ public class Api {
     public static final String URL_UPDATE_STORE_MANAGER = ROOT_URL + "updatestoremanager";
     public static final String URL_DELETE_STORE_MANAGER = ROOT_URL + "deleteastoremanager&id=";
 
-    //Product Data
+    //Services Data
     public static final String URL_CREATE_SERVICE = ROOT_URL + "createservice";
-    public static final String URL_READ_SERVICE = ROOT_URL + "getservices";
+    public static final String URL_READ_SERVICE = ROOT_URL + "getallservices";
+    public static final String URL_READ_SERVICE_TO_ID = ROOT_URL + "getservicestoid";
+    public static final String URL_READ_SERVICE_All_INFO = ROOT_URL + "getallinfoservices";
     public static final String URL_UPDATE_SERVICE = ROOT_URL + "updateservice";
     public static final String URL_DELETE_SERVICE = ROOT_URL + "deleteservice&id=";
+    public static final String URL_POPULATE_SPINNER_CATEGORIES = ROOT_URL + "populatespinnercategories";
 }

@@ -1,32 +1,20 @@
 package com.example.laundryshopmanagercapstone.ui.profile;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.laundryshopmanagercapstone.LoginActivity;
 import com.example.laundryshopmanagercapstone.R;
 import com.example.laundryshopmanagercapstone.apiconnection.Manager;
 import com.example.laundryshopmanagercapstone.databinding.FragmentProfileBinding;
 import com.example.laundryshopmanagercapstone.ui.main.SharedPrefManager;
-import com.example.laundryshopmanagercapstone.ui.profile.ProfileViewModel;
 
 public class ProfileFragment extends Fragment {
     TextView textViewUsername, textViewEmailAddress, textViewName, textViewOwner, textViewContactNumber, textViewAddress;

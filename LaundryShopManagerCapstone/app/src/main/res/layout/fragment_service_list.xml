@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.productList.ProductListFragment">
+    tools:context=".ui.servicesList.ProductListFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -129,6 +129,13 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/textViewId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="gone" />
+
+        <TextView
             android:id="@+id/text_productList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -157,7 +164,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="45dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@android:drawable/ic_input_add" />
 
     <ProgressBar
         android:id="@+id/progressBar2"

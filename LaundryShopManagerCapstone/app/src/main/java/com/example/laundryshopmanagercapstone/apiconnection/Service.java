@@ -2,13 +2,13 @@ package com.example.laundryshopmanagercapstone.apiconnection;
 
 public class Service {
     private int id;
-    private String service_name, service_price, service_desc, item_name, category_name, store_name;
+    private String services_name, services_price, services_desc, item_name, category_name, store_name;
 
-    public Service(int id, String service_name, String service_price, String service_desc, String item_name, String category_name, String store_name) {
+    public Service(int id, String services_name, String services_price, String services_desc, String item_name, String category_name, String store_name) {
         this.id = id;
-        this.service_name = service_name;
-        this.service_price = service_price;
-        this.service_desc = service_desc;
+        this.services_name = services_name;
+        this.services_price = services_price;
+        this.services_desc = services_desc;
         this.item_name = item_name;
         this.category_name = category_name;
         this.store_name = store_name;
@@ -18,16 +18,16 @@ public class Service {
         return id;
     }
 
-    public String getService_name() {
-        return service_name;
+    public String getServices_name() {
+        return services_name;
     }
 
-    public String getService_price() {
-        return service_price;
+    public String getServices_price() {
+        return services_price;
     }
 
-    public String getService_desc() {
-        return service_desc;
+    public String getServices_desc() {
+        return services_desc;
     }
 
     public String getItem_name() {

@@ -1,14 +1,14 @@
-package com.example.laundryshopmanagercapstone.ui.productList;
+package com.example.laundryshopmanagercapstone.ui.servicesList;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ProductListViewModel extends ViewModel {
+public class ServiceListViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ProductListViewModel() {
+    public ServiceListViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is product list fragment");
     }

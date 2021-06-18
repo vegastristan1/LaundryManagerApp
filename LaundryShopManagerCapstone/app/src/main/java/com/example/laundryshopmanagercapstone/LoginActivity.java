@@ -14,13 +14,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import android.os.Bundle;
 
 import com.example.laundryshopmanagercapstone.apiconnection.Manager;
 import com.example.laundryshopmanagercapstone.apiconnection.RequestHandler;
 import com.example.laundryshopmanagercapstone.apiconnection.URLs;
 import com.example.laundryshopmanagercapstone.ui.main.SharedPrefManager;
-import com.example.laundryshopmanagercapstone.ui.profile.ProfileFragment;
 
 public class LoginActivity extends AppCompatActivity {
 
